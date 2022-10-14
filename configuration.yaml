@@ -1,0 +1,17 @@
+mqtt:
+  broker: "YOUR_BROKER_ADDRESS"
+  button:
+    - unique_id: waterer_pump_button
+      name: "Water Plant"
+      command_topic: "waterer/waterpump"
+      payload_press: "Requested"
+      qos: 1
+      retain: false
+  sensor:
+    - name: "Waterer Moisture"
+      state_topic: "waterer/moisture"
+      unit_of_measurement: "%"
+    - name: "Waterer Status"
+      state_topic: "waterer/status"
+    - name: "Waterer Pump"
+      state_topic: "waterer/waterpump"
