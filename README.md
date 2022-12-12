@@ -1,5 +1,4 @@
-# Waterer
-<h>Automatic Plant Water</h> 
+# Automatic Plant Water
 
 An automatic plant waterer based on Pi Pico W in MicroPython wired, to a moisture sensor and water pump via a relay.
 
