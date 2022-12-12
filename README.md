@@ -3,11 +3,11 @@ Automatic Plant Water
 
 An automatic plant waterer based on Pi Pico W in MicroPython wired, to a moisture sensor and water pump via a relay.
 
-##Wiring
+Wiring
 Moisture Sensor pin 6 (ADC)
 Pump pin 26 
     
-##Coding for Pico W
+Coding for Pico W
 - index.py
 - main.py
   - uses umqttsimple.py from https://github.com/RuiSantosdotme/ESP-MicroPython/blob/master/code/MQTT/umqttsimple.py
