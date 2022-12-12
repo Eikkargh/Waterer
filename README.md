@@ -7,7 +7,7 @@ Wiring
 Moisture Sensor pin 6 (ADC)
 Pump pin 26 
     
-Coding for Pico W
+Coding for Pico W in MicroPython
 - boot.py
 - main.py
   - uses umqttsimple.py from https://github.com/RuiSantosdotme/ESP-MicroPython/blob/master/code/MQTT/umqttsimple.py
