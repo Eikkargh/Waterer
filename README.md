@@ -1,19 +1,19 @@
 # Waterer
-<b>Automatic Plant Water</b> 
+<h>Automatic Plant Water</h> 
 
 An automatic plant waterer based on Pi Pico W in MicroPython wired, to a moisture sensor and water pump via a relay.
 
-<b>Wiring</b> 
+<h1>Wiring</h1> 
 - Moisture Sensor pin 6 (ADC)
 - Pump pin 26 
  
-<b>Coding for Pico W in MicroPython</b>
+<h1>Coding for Pico W in MicroPython</h1>
 - boot.py
 - main.py
   - uses umqttsimple.py from https://github.com/RuiSantosdotme/ESP-MicroPython/blob/master/code/MQTT/umqttsimple.py
 - secrets.py
 
-<b>Home Assistant yaml snippets:</b>
+<h1>Home Assistant yaml snippets:</h1>
 <img src="HASS Waterer.png">
 - configuration.yaml
   - uses mqtt integration
