@@ -4,6 +4,9 @@
             show_icon: true
             icon: mdi:water-pump
             icon_height: 35px
+            entity: button.water_pump
+            name: Water Plant
+            show_state: false
             type: button
             tap_action:
               action: call-service
@@ -12,15 +15,19 @@
                 topic: waterer/waterpump
                 payload: Requested
               target: {}
-            entity: button.water_pump
-            name: Water Plant
-            show_state: false
-            hold_action:
+            double_tap_action:
               action: call-service
               service: mqtt.publish
               data:
                 topic: waterer/waterpump
                 payload: Cancelled
+              target: {}
+            hold_action:
+              action: call-service
+              service: mqtt.publish
+              data:
+                topic: waterer/restart
+                payload: Reboot
               target: {}
             style: |
               :host { 
@@ -68,3 +75,22 @@
                       '#00FF00' }}; 
                     }
             state_color: true
+      - show_name: true
+        show_icon: true
+        show_state: true
+        type: glance
+        entities:
+          - entity: sensor.kid_room_temp
+            style: |
+              :host {
+              --paper-item-icon-color: {{  '#FF3333'  if
+              states('sensor.kid_room_temp') | float > 20 else '#CC6600' if
+              states('sensor.kid_room_temp') | float > 15 else '#0000CC' }}; 
+              }
+          - entity: sensor.kid_room_humidity
+            style: >
+              :host {
+              --paper-item-icon-color: {{  '#00FFFF'  if
+              states('sensor.kid_room_humidity') | float > 60 else '#00FF00' if
+              states('sensor.kid_room_humidity') | float > 15 else '#CCCC00' }}; 
+              }
