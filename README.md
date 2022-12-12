@@ -14,6 +14,7 @@ An automatic plant waterer based on Pi Pico W in MicroPython wired, to a moistur
 - secrets.py
 
 <b>Home Assistant yaml snippets:</b>
+<img src="HASS Waterer.png">
 - configuration.yaml
   - uses mqtt integration
 - lovelace.yaml
