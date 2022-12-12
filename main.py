@@ -66,14 +66,16 @@ def run_pump():
         pump(0)
         print('pump requested: %s Cycles: %s' % (pump_req, count))
         time.sleep(pump_interval)
-        if count >= max_water_cycles:
+        if count == max_water_cycles:
             print('Low water. Please check level')
             client.publish(topic_pump, b'Low Water')
+            return
     lock.acquire()
     pump_req = 'None'
     lock.release()            
     print('Pump request complete after %s cycles.' % count)
-    client.publish(topic_pump, b'Complete') 
+    if count != max_water_cycles:
+        client.publish(topic_pump, b'Complete')
     client.publish(topic_moist, '%.1f' % moisture, retain=True)
 
 def sub_cb(topic, msg):
