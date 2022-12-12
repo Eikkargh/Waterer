@@ -8,9 +8,10 @@ Moisture Sensor pin 6 (ADC)
 Pump pin 26 
     
 Coding for Pico W
-- index.py
+- boot.py
 - main.py
   - uses umqttsimple.py from https://github.com/RuiSantosdotme/ESP-MicroPython/blob/master/code/MQTT/umqttsimple.py
+- secrets.py
   
 Home Assistant yaml snippets:
 - configuration.yaml
