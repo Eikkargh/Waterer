@@ -6,7 +6,6 @@ An automatic plant waterer based on Pi Pico W in MicroPython wired, to a moistur
 <b>Wiring</b> 
 
 Moisture Sensor pin 6 (ADC)
-
 Pump pin 26 
  
 <b>Coding for Pico W in MicroPython</b>
