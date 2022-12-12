@@ -18,9 +18,9 @@ An automatic plant waterer based on Pi Pico W in MicroPython wired, to a moistur
 <h2>Home Assistant yaml</h2>
 <img src="HASS Waterer.png">
 <ul>
-  <li>configuration.yaml</li>
-  <ul><li>uses mqtt integration</li></ul>
-- lovelace.yaml
-  - lovelace.yaml is no longer used. Code should be copied into the Edit Dashboard - Raw Configuration Editor from the the lovelace menu.
-  - uses card-mod integration found in HACS Frontend
-
+    <li>configuration.yaml</li>
+    <ul><li>uses mqtt integration</li></ul>
+    <li>lovelace.yaml</li>
+    <ul><li>lovelace.yaml is no longer used. Code should be copied into the Edit Dashboard - Raw Configuration Editor from the the lovelace menu.</li>
+    <li>uses card-mod integration found in HACS Frontend</li>
+ </ul>
