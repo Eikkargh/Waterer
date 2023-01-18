@@ -1,4 +1,4 @@
-from machine import ADC, Pin
+from machine import ADC, Pin, WDT
 from umqttsimple import MQTTClient
 import time
 import secrets
@@ -7,6 +7,7 @@ import json
 
 #system settings
 boot = time.time()
+wdt = WDT(timeout=5000)
 reboot_days = 1 #0 is infinite else days
 
 #MQTT Client settings
@@ -38,6 +39,7 @@ lock = _thread.allocate_lock()
 
 def calibrate():
     global min_moisture, max_moisture, message_interval, max_threshold, min_threshold, max_water_cycles, pump_on_time, pump_interval
+    client.publish(topic_pump, b'Configuring')
     settings = config.get('settings')
     min_moisture = settings.get('min_moisture')
     max_moisture = settings.get('max_moisture')
@@ -52,6 +54,7 @@ def calibrate():
     config.update({'calibrate': 'False'})
     config_json = json.dumps(config)
     client.publish(topic_config, config_json, retain=True)
+    client.publish(topic_pump, b'Available')
     
 def run_pump():
     global pump_req
@@ -114,6 +117,7 @@ def mqtt_connect():
     client.publish(topic_restart, b'Loaded', retain=True)
     client.publish(topic_pump, b'Available', retain=True)
     print('MQTT connected. Broker: %s' % mqtt_server)
+    wdt.feed()
     return client
 
 def restart():
@@ -179,6 +183,8 @@ while True:
         print('Pump request error')
         client.publish(topic_pump, b'Pump Error')
         restart()
+        
+    wdt.feed()
 
 #scheduled restart
     if reboot_days != 0 and (time.time() - boot) > (reboot_days * 86400):
