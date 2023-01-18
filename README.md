@@ -10,9 +10,10 @@ An automatic plant waterer based on Pi Pico W in MicroPython wired, to a moistur
  
 <h2>Coding for Pico W in MicroPython</h2>
 <ul>
+  <li>micropython.uf2 from: [Rapsberry Pi Documentation](https://www.raspberrypi.com/documentation/microcontrollers/micropython.html)
   <li>boot.py</li>
   <li>main.py</li>
-    <ul><li>uses umqttsimple.py from https://github.com/RuiSantosdotme/ESP-MicroPython/blob/master/code/MQTT/umqttsimple.py</li></ul>
+    <ul><li>uses umqttsimple.py from: [GitHub:RuiSantosdotme](https://github.com/RuiSantosdotme/ESP-MicroPython/blob/master/code/MQTT/umqttsimple.py)</li></ul>
   <li>secrets.py</li>
 </ul>
   
