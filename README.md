@@ -15,6 +15,9 @@ An automatic plant waterer based on Pi Pico W in MicroPython wired, to a moistur
   <li>main.py</li>
     <ul><li>uses umqttsimple.py from: <a href=https://github.com/RuiSantosdotme/ESP-MicroPython/blob/master/code/MQTT/umqttsimple.py>GitHub:RuiSantosdotme</a></li></ul>
   <li>secrets.py</li>
+  <li>config.json</li>
+    <ul><li>Stores last config between reboots</li>
+    <li>Replace with this if setting config in Home Assistant breaks</li></ul>
 </ul>
   
 <h2>Home Assistant yaml</h2>
