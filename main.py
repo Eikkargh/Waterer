@@ -153,6 +153,8 @@ while True:
 #read moisture value
     try:
         moisture = 100-(max_moisture-soil.read_u16())*100/(max_moisture-min_moisture)
+        while moisture > 150:
+            moisture = 100-(max_moisture-soil.read_u16())*100/(max_moisture-min_moisture)
         if (time.time() - last_message) > message_interval:
             client.publish(topic_moist, '%.1f' % moisture)         
             last_message = time.time()  
