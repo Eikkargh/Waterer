@@ -29,51 +29,55 @@
                 topic: waterer/restart
                 payload: Reboot
               target: {}
-            style: |
-              :host { 
-                --paper-item-icon-color: {{ 
-                  '#00FF00' if is_state('sensor.waterer_status', 'Moist') else 
-                  '#FF0000' if is_state('sensor.waterer_status', 'Dry') else 
-                  '#0000FF' }}; 
-              }
-              ha-card {
-                margin: 0 75px 0 75px;
-                line-height: 4px;
-                --ha-card-border-radius: 100px;
-              }
+            card_mod:
+              style: |      
+                :host {       
+                  --paper-item-icon-color: {{ 
+                    '#00FF00' if is_state('sensor.waterer_status', 'Moist') else 
+                    '#FF0000' if is_state('sensor.waterer_status', 'Dry') else 
+                    '#0000FF' }}; 
+                  }
+                  ha-card {
+                    margin: 0 75px 0 75px;
+                    line-height: 4px;
+                    --ha-card-border-radius: 100px;
+                  }
           - type: entities
             entities:
               - entity: sensor.waterer_status
                 name: Soil State
                 icon: mdi:sprout
-                style: |
-                  :host { 
-                    --paper-item-icon-color: {{ 
-                      '#00FF00' if is_state('sensor.waterer_status', 'Moist') else 
-                      '#FF0000' if is_state('sensor.waterer_status', 'Dry') else 
-                      '#0000FF' }}; 
-                  }
+                card_mod:
+                  style: |
+                    :host { 
+                      --paper-item-icon-color: {{ 
+                        '#00FF00' if is_state('sensor.waterer_status', 'Moist') else 
+                        '#FF0000' if is_state('sensor.waterer_status', 'Dry') else 
+                        '#0000FF' }}; 
+                    }
               - entity: sensor.waterer_moisture
                 name: Moisture
                 icon: mdi:water
-                style: |
-                  :host { 
-                    --paper-item-icon-color: {{ 
-                      '#00FF00' if is_state('sensor.waterer_status', 'Moist') else 
-                      '#FF0000' if is_state('sensor.waterer_status', 'Dry') else 
-                      '#0000FF' }}; 
-                  }
+                card_mod:
+                  style: |
+                    :host { 
+                      --paper-item-icon-color: {{ 
+                        '#00FF00' if is_state('sensor.waterer_status', 'Moist') else 
+                        '#FF0000' if is_state('sensor.waterer_status', 'Dry') else 
+                        '#0000FF' }}; 
+                      }
               - entity: sensor.waterer_pump
                 name: Pump
                 icon: mdi:water-pump
-                style: |
-                  :host { 
-                    --paper-item-icon-color: {{ 
-                      '#FFFF00' if is_state('sensor.waterer_pump', 'Requested') else 
-                      '#CC6600' if is_state('sensor.waterer_pump', 'Cancelled') else 
-                      '#00FFFF' if is_state('sensor.waterer_pump', 'Low Water') else 
-                      '#00FF00' }}; 
-                    }
+                card_mod:
+                  style: |
+                    :host { 
+                      --paper-item-icon-color: {{ 
+                        '#FFFF00' if is_state('sensor.waterer_pump', 'Requested') else 
+                        '#CC6600' if is_state('sensor.waterer_pump', 'Cancelled') else 
+                        '#00FFFF' if is_state('sensor.waterer_pump', 'Low Water') else 
+                        '#00FF00' }}; 
+                      }
             state_color: true
       - show_name: true
         show_icon: true
@@ -81,16 +85,18 @@
         type: glance
         entities:
           - entity: sensor.kid_room_temp
-            style: |
-              :host {
-              --paper-item-icon-color: {{  '#FF3333'  if
-              states('sensor.kid_room_temp') | float > 20 else '#CC6600' if
-              states('sensor.kid_room_temp') | float > 15 else '#0000CC' }}; 
-              }
+            card_mod:
+              style: |
+                :host {
+                  --paper-item-icon-color: {{  '#FF3333'  if
+                    states('sensor.kid_room_temp') | float > 20 else '#CC6600' if
+                    states('sensor.kid_room_temp') | float > 15 else '#0000CC' }}; 
+                  }
           - entity: sensor.kid_room_humidity
-            style: >
-              :host {
-              --paper-item-icon-color: {{  '#00FFFF'  if
-              states('sensor.kid_room_humidity') | float > 60 else '#00FF00' if
-              states('sensor.kid_room_humidity') | float > 15 else '#CCCC00' }}; 
-              }
+            card_mod:
+              style: >
+                :host {
+                  --paper-item-icon-color: {{  '#00FFFF'  if
+                    states('sensor.kid_room_humidity') | float > 60 else '#00FF00' if
+                    states('sensor.kid_room_humidity') | float > 15 else '#CCCC00' }}; 
+                  }
